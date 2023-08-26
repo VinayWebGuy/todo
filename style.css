@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fjalla+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Asap condensed", sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #000, #222);
+}
+.logo {
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 800;
+  letter-spacing: 0.15rem;
+}
+.blocks {
+  width: 80%;
+  margin: 30px auto;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.block {
+  height: 400px;
+  width: 300px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.block-heading {
+  width: 100%;
+  background-color: #fff;
+  height: 10%;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block-content {
+  height: 90%;
+  color: #fff;
+  overflow-y: auto;
+}
+/* width */
+.block-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+.block-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.block-content::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.block-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.single-task {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.task {
+  width: 75%;
+}
+.task-action {
+  display: flex;
+  gap: 8px;
+}
+.action {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.action.p {
+  background-color: blue;
+}
+.action.c {
+  background-color: green;
+}
+.action.i {
+  background-color: red;
+}
