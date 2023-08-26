@@ -131,6 +131,10 @@ body {
     justify-content: center;
     align-items: center;
     inset: 0;
+    transition: scale 0.2s;
+}
+.add-task-block.hidden{
+    scale: 0;
 }
 .add-task-form{
     width: 800px;

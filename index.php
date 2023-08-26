@@ -84,11 +84,11 @@
             </div>
         </div>
 
-        <div class="add-task-block">
+        <div class="add-task-block hidden">
             <div class="add-task-form">
                 <div class="add-task-header">
                     <h3>Add Task</h3>
-                    <div class="close-icon">&#x2715;</div>
+                    <div class="close-icon close-button">&#x2715;</div>
                 </div>
                 <div class="add-task-body">
                     <textarea name="task" id=""></textarea>
