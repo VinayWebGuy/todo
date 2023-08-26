@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <main>
-        <div class="logo">CG - TODO</div>
+        <div class="logo">myTodo App</div>
         <div class="blocks">
             <div class="initial-block block">
                 <div class="block-heading">Initial</div>
@@ -40,6 +41,7 @@
                 </div>
                 <div class="add-task-body">
                     <form id="task-form" class="input-elements">
+                        <input type="hidden" name="task_id" id="task_id">
                         <textarea name="task" id="task"></textarea>
                         <span id="task-error" class="error"></span>
                         <select name="type" id="type">

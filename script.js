@@ -1,4 +1,10 @@
 $('.add-button button').click(function () {
+    $('#task').val("")
+    $('#task_id').val("")
+    $('#type').val("initial");
+    $('.input-elements').removeClass('loading');
+    $('.loader').removeClass('loading');
+    $('#add-task-button').html('Add Task')
     $('.add-task-block').removeClass('hidden');
 })
 $('.close-button').click(function () {
@@ -9,6 +15,7 @@ $('#task-form').on('submit', function (e) {
     e.preventDefault();
     let task = $('#task').val();
     let type = $('#type').val();
+    let task_id = $('#task_id').val();
 
     if (task.trim() !== '') {
         $('.input-elements').addClass('loading');
@@ -18,21 +25,40 @@ $('#task-form').on('submit', function (e) {
         $('#task-error').html("Please add a task");
         return;
     }
-    
-    let action = "task";
-    $.ajax({
-        type: 'POST',
-        cache: false,
-        data: { task: task, type: type, action: action },
-        url: 'action.php',
-        success: function (response) {
-            $('.input-elements').removeClass('loading');
-            $('.loader').removeClass('loading');
-            $('.add-task-block').addClass('hidden');
-            $('#task-form')[0].reset();
-            renderBlocks();
-        }
-    })
+    let action = "";
+    if(task_id=="") {
+        action = "add-task";
+        $.ajax({
+            type: 'POST',
+            cache: false,
+            data: { task: task, type: type, action: action },
+            url: 'action',
+            success: function (response) {
+                $('.input-elements').removeClass('loading');
+                $('.loader').removeClass('loading');
+                $('.add-task-block').addClass('hidden');
+                $('#task-form')[0].reset();
+                renderBlocks();
+            }
+        })
+    }
+    else{
+        action = "update-task";
+        $.ajax({
+            type: 'POST',
+            cache: false,
+            data: { task: task, type: type, id: task_id, action: action },
+            url: 'action',
+            success: function (response) {
+                $('.input-elements').removeClass('loading');
+                $('.loader').removeClass('loading');
+                $('.add-task-block').addClass('hidden');
+                $('#task-form')[0].reset();
+                renderBlocks();
+            }
+        })
+    }
+   
 })
 
 function renderBlocks() {
@@ -43,7 +69,7 @@ function renderBlocks() {
         type: 'GET',
         cache: false,
         data: { action: 'blocks' },
-        url: 'action.php',
+        url: 'action',
         success: function (response) {
             const new_response = JSON.parse(response);
 
@@ -66,7 +92,7 @@ function renderBlocks() {
                     });
 
                     html += `<div class="single-task">
-                        <div class="task">${action.task}</div>
+                        <div class="task">${action.task} <i data-id="${action.id}" class="fa fa-edit edit-task"></i> <i data-id="${action.id}" class="fa fa-trash delete-task"></i></div>
                         <div class="task-action">${moveButtons}</div>
                     </div>`;
                 });
@@ -81,6 +107,39 @@ function renderBlocks() {
                 let id = $(this).data('id');
                 moveTask(move_type, id);
             });
+
+            $('.edit-task').on('click', function () {
+                let id = $(this).data('id');
+                $.ajax({
+                    type: 'GET',
+                    cache: false,
+                    data: { action: 'edit',id: id },
+                    url: 'action',
+                    success: function (response) {
+                        const edit_response = JSON.parse(response);
+                        $('.input-elements').removeClass('loading');
+                        $('.loader').removeClass('loading');
+                        $('.add-task-block').removeClass('hidden');
+                        $('#add-task-button').html('Update Task')
+                        $('#task').val(edit_response.task)
+                        $('#task_id').val(edit_response.id)
+                        $('#type').val(edit_response.type);
+                    }
+                });
+               
+            })
+            $('.delete-task').on('click', function () {
+                let id = $(this).data('id');
+                $.ajax({
+                    type: 'GET',
+                    cache: false,
+                    data: { action: 'delete',id: id },
+                    url: 'action',
+                    success: function (response) {
+                       renderBlocks();
+                    }
+                });
+            })
         }
     });
 }
@@ -91,12 +150,13 @@ function moveTask(type, id) {
         type: 'POST',
         cache: false,
         data: { type: type, id: id, action: action },
-        url: 'action.php',
+        url: 'action',
         success: function (response) {
             renderBlocks();
         }
     })
 }
+
 
 
 
