@@ -10,15 +10,15 @@ $('#task-form').on('submit', function (e) {
     let task = $('#task').val();
     let type = $('#type').val();
 
-    if (task != '') {
+    if (task.trim() !== '') {
         $('.input-elements').addClass('loading');
         $('.loader').addClass('loading');
-        $('#task-error').html("")
-    }
-    else {
-        $('#task-error').html("Please add a task")
+        $('#task-error').html("");
+    } else {
+        $('#task-error').html("Please add a task");
         return;
     }
+    
     let action = "task";
     $.ajax({
         type: 'POST',
