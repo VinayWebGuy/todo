@@ -216,3 +216,7 @@ body {
     transform: rotate(360deg);
   }
 }
+.error{
+    color: red;
+    font-weight: 600;
+}

@@ -15,71 +15,19 @@
         <div class="blocks">
             <div class="initial-block block">
                 <div class="block-heading">Initial</div>
-                <div class="block-content">
-                    <div class="single-task">
-                        <div class="task">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia?
-                        </div>
-                        <div class="task-action">
-                            <div class="action p">P</div>
-                            <div class="action c">C</div>
-                        </div>
-                    </div>
-                    <div class="single-task">
-                        <div class="task">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia?
-                        </div>
-                        <div class="task-action">
-                            <div class="action p">P</div>
-                            <div class="action c">C</div>
-                        </div>
-                    </div>
+                <div id="initial" class="block-content">
+                    
                 </div>
             </div>
             <div class="progress-block block">
                 <div class="block-heading">In Progress</div>
-                <div class="block-content">
-                    <div class="single-task">
-                        <div class="task">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia?
-                        </div>
-                        <div class="task-action">
-                            <div class="action i">I</div>
-                            <div class="action c">C</div>
-                        </div>
-                    </div>
-                    <div class="single-task">
-                        <div class="task">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia?
-                        </div>
-                        <div class="task-action">
-                            <div class="action i">I</div>
-                            <div class="action c">C</div>
-                        </div>
-                    </div>
+                <div id="progress" class="block-content">
                 </div>
             </div>
             <div class="complete-block block">
                 <div class="block-heading">Completed</div>
-                <div class="block-content">
-                    <div class="single-task">
-                        <div class="task">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia?
-                        </div>
-                        <div class="task-action">
-                            <div class="action i">I</div>
-                            <div class="action p">P</div>
-                        </div>
-                    </div>
-                    <div class="single-task">
-                        <div class="task">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, mollitia?
-                        </div>
-                        <div class="task-action">
-                            <div class="action i">I</div>
-                            <div class="action p">P</div>
-                        </div>
-                    </div>
+                <div id="completed" class="block-content">
+                 
                 </div>
             </div>
         </div>
@@ -91,9 +39,10 @@
                     <div class="close-icon close-button">&#x2715;</div>
                 </div>
                 <div class="add-task-body">
-                    <form id="task-form" class="input-elements loading">
-                        <textarea name="task" id=""></textarea>
-                        <select name="" id="">
+                    <form id="task-form" class="input-elements">
+                        <textarea name="task" id="task"></textarea>
+                        <span id="task-error" class="error"></span>
+                        <select name="type" id="type">
                             <option value="initial">Initial</option>
                             <option value="progress">Progress</option>
                             <option value="completed">Completed</option>
@@ -102,7 +51,7 @@
                             <button id="add-task-button">Add Task</button>
                         </div>
                     </form>
-                    <div class="loader loading">
+                    <div class="loader">
 
                     </div>
                 </div>
