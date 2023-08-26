@@ -91,14 +91,19 @@
                     <div class="close-icon close-button">&#x2715;</div>
                 </div>
                 <div class="add-task-body">
-                    <textarea name="task" id=""></textarea>
-                    <select name="" id="">
-                        <option value="initial">Initial</option>
-                        <option value="progress">Progress</option>
-                        <option value="completed">Completed</option>
-                    </select>
-                    <div class="add-task-buttons">
-                        <button id="add-task-button">Add Task</button>
+                    <form id="task-form" class="input-elements loading">
+                        <textarea name="task" id=""></textarea>
+                        <select name="" id="">
+                            <option value="initial">Initial</option>
+                            <option value="progress">Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <div class="add-task-buttons">
+                            <button id="add-task-button">Add Task</button>
+                        </div>
+                    </form>
+                    <div class="loader loading">
+
                     </div>
                 </div>
             </div>
