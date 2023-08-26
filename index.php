@@ -36,7 +36,7 @@
         <div class="add-task-block hidden">
             <div class="add-task-form">
                 <div class="add-task-header">
-                    <h3>Add Task</h3>
+                    <h3 id="task-heading">Add Task</h3>
                     <div class="close-icon close-button">&#x2715;</div>
                 </div>
                 <div class="add-task-body">

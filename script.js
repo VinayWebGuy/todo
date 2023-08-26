@@ -5,6 +5,7 @@ $('.add-button button').click(function () {
     $('.input-elements').removeClass('loading');
     $('.loader').removeClass('loading');
     $('#add-task-button').html('Add Task')
+    $('#task-heading').html('Add Task')
     $('#task-error').html("");
     $('.add-task-block').removeClass('hidden');
 })
@@ -123,6 +124,7 @@ function renderBlocks() {
                         $('#task-error').html("");
                         $('.add-task-block').removeClass('hidden');
                         $('#add-task-button').html('Update Task')
+                        $('#task-heading').html('Update Task')
                         $('#task').val(edit_response.task)
                         $('#task_id').val(edit_response.id)
                         $('#type').val(edit_response.type);
